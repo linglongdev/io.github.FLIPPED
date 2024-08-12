@@ -1,0 +1,31 @@
+version: "1"
+
+package:
+  id: io.github.FLIPPED
+  name: FLIPPED
+  version: 1.3.2.1
+  kind: app
+  description: |
+    Simple and beautiful screenshot software tool for Windows, MacOS and Linux 
+
+command:
+  - /opt/apps/io.github.FLIPPED/files/bin/FLIPPED
+
+base: org.deepin.foundation/23.0.0
+runtime: org.deepin.Runtime/23.0.1
+
+sources:
+  - kind: git
+    url: https://github.com/SunnyScreenshot/FLIPPED.git
+    version: master
+    commit: f48ef2b5c67852628b927b8022ea98c0a9cfc523
+
+build: |
+  cd /project/linglong/sources/FLIPPED.git
+  cp src/resources/logo/logo.png src/resources/logo/FLIPPED.png
+  git apply ../../../0001-install.patch
+  mkdir build
+  cd build
+  cmake .. \
+        -DCMAKE_INSTALL_PREFIX=${PREFIX}
+  cmake --build . --target install
