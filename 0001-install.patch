@@ -1,0 +1,102 @@
+From 1b821a3077f3c761c4601f2d2f29d86a09c71567 Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Fri, 9 Aug 2024 16:11:58 +0800
+Subject: [PATCH] install
+
+---
+ src/CMakeLists.txt  |  7 +++++++
+ src/FLIPPED.desktop | 11 +++++++++++
+ src/resources.qrc   | 44 ++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 62 insertions(+)
+ create mode 100644 src/FLIPPED.desktop
+ create mode 100644 src/resources.qrc
+
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index fe7f22a..8a3d6da 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -381,6 +381,13 @@ install(TARGETS ${project_name}
+     BUNDLE DESTINATION .
+     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+ 
++install(FILES resources/logo/FLIPPED.png
++        DESTINATION share/icons)
++
++
++install(FILES FLIPPED.desktop
++            DESTINATION share/applications)
++
+ if(QT_VERSION_MAJOR EQUAL 6)
+     qt_finalize_executable(${project_name})
+ endif()
+diff --git a/src/FLIPPED.desktop b/src/FLIPPED.desktop
+new file mode 100644
+index 0000000..e816028
+--- /dev/null
++++ b/src/FLIPPED.desktop
+@@ -0,0 +1,11 @@
++[Desktop Entry]
++Categories=Accessibility;Qt;Utility;
++Exec=FLIPPED
++Name=FLIPPED
++Name[zh_CN]=FLIPPED
++Icon=FLIPPED
++StartupNotify=false
++Terminal=false
++Type=Application
++GenericName=FLIPPED
++Version=1.3.2
+\ No newline at end of file
+diff --git a/src/resources.qrc b/src/resources.qrc
+new file mode 100644
+index 0000000..4c241fe
+--- /dev/null
++++ b/src/resources.qrc
+@@ -0,0 +1,44 @@
++<RCC>
++    <qresource prefix="/">
++        <file>resources/tool/arrow.svg</file>
++        <file>resources/tool/cancel.svg</file>
++        <file>resources/tool/ellipse.svg</file>
++        <file>resources/tool/finish.svg</file>
++        <file>resources/tool/gif.svg</file>
++        <file>resources/tool/mosaic.svg</file>
++        <file>resources/tool/rectangle.svg</file>
++        <file>resources/tool/renewal.svg</file>
++        <file>resources/tool/revocation.svg</file>
++        <file>resources/tool/save.svg</file>
++        <file>resources/tool/smooth.svg</file>
++        <file>resources/tool/text.svg</file>
++        <file>resources/tool/serialnumber.svg</file>
++        <file>resources/tool_para/ellipses/ellipse.svg</file>
++        <file>resources/tool_para/ellipses/ellipse_fill.svg</file>
++        <file>resources/tool_para/mosaics/pixelated.svg</file>
++        <file>resources/tool_para/mosaics/smooth.svg</file>
++        <file>resources/tool_para/rectangles/rectangle.svg</file>
++        <file>resources/tool_para/rectangles/rectangle_fill.svg</file>
++        <file>resources/tool_para/arrows/arrow_1.svg</file>
++        <file>resources/tool_para/arrows/arrow_2.svg</file>
++        <file>resources/tool_para/arrows/arrow_3.svg</file>
++        <file>resources/tool_para/line_width/line_width_1.svg</file>
++        <file>resources/tool_para/line_width/line_width_2.svg</file>
++        <file>resources/tool_para/line_width/line_width_3.svg</file>
++        <file>resources/tool_para/arrows/arrow_4.svg</file>
++        <file>resources/tool/pin.svg</file>
++        <file>resources/tool_para/serialnumber/ellipse_fill.svg</file>
++        <file>resources/tool_para/serialnumber/letters.svg</file>
++        <file>resources/tool_para/serialnumber/numbers.svg</file>
++        <file>resources/tool_para/serialnumber/rectangle_fill.svg</file>
++        <file>resources/tool_para/text/bold.svg</file>
++        <file>resources/tool_para/text/italic.svg</file>
++        <file>resources/tool_para/text/outline.svg</file>
++        <file>resources/tool/custompath.svg</file>
++        <file>resources/border_style/light_blue/boardPoint.svg</file>
++        <file>resources/logo/logo.ico</file>
++        <file>resources/logo/logo.png</file>
++        <file>resources/logo/logo.svg</file>
++        <file>resources/logo/resources.rc</file>
++    </qresource>
++</RCC>
+-- 
+2.43.4
+
